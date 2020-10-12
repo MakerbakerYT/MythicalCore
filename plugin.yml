@@ -1,0 +1,6 @@
+name: MythicalCore
+author: MakerbakerYT
+main: core\Mythical
+version: "1.2.4"
+api: 4.0.0, 3.0.0
+description: MythicalCore Faction Server
