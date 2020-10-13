@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace core\faction\command\subCommands;
 
 use core\command\utils\SubCommand;
-use core\CrypticPlayer;
+use core\MythicalPlayer;
 use core\translation\Translation;
 use core\translation\TranslationException;
 use pocketmine\command\CommandSender;
@@ -29,7 +29,7 @@ class AddPowerSubCommand extends SubCommand {
      * @throws TranslationException
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args): void {
-        if(($sender->isOp() and $sender instanceof CrypticPlayer) or $sender instanceof ConsoleCommandSender) {
+        if(($sender->isOp() and $sender instanceof MythicalPlayer) or $sender instanceof ConsoleCommandSender) {
             if(isset($args[2])) {
                 $faction = $this->getCore()->getFactionManager()->getFaction($args[1]);
                 if($faction === null) {
