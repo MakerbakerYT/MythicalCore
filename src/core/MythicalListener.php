@@ -43,7 +43,7 @@ use pocketmine\scheduler\Task;
 use pocketmine\utils\TextFormat;
 use pocketmine\event\entity\ItemSpawnEvent;
 
-class CrypticListener implements Listener
+class MythicalListener implements Listener
 {
 
     /** @var Mythical */
