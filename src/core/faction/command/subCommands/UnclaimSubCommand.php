@@ -6,7 +6,7 @@ namespace core\faction\command\subCommands;
 
 use core\command\utils\SubCommand;
 use core\faction\Faction;
-use core\CrypticPlayer;
+use core\MythicalPlayer;
 use core\translation\Translation;
 use core\translation\TranslationException;
 use pocketmine\command\CommandSender;
@@ -28,7 +28,7 @@ class UnclaimSubCommand extends SubCommand {
      * @throws TranslationException
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args): void {
-        if(!$sender instanceof CrypticPlayer) {
+        if(!$sender instanceof MythicalPlayer) {
             $sender->sendMessage(Translation::getMessage("noPermission"));
             return;
         }
