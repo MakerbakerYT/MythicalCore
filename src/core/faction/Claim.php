@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace core\faction;
 
-use core\Cryptic;
+use core\Mythical;
 use pocketmine\level\format\Chunk;
 
 class Claim {
@@ -23,7 +23,7 @@ class Claim {
      * @param Faction $faction
      */
     public function __construct(int $chunkX, int $chunkZ, Faction $faction) {
-        $level = Cryptic::getInstance()->getServer()->getLevelByName(Faction::CLAIM_WORLD);
+        $level = Mythical::getInstance()->getServer()->getLevelByName(Faction::CLAIM_WORLD);
         $this->chunk = $level->getChunk($chunkX, $chunkZ);
         $this->faction = $faction;
     }
