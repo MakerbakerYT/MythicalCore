@@ -47,7 +47,7 @@ use pocketmine\plugin\PluginException;
 use pocketmine\utils\Internet;
 use ReflectionException;
 
-class Cryptic extends PluginBase {
+class Mythical extends PluginBase {
 
     static $debug = true;
 
