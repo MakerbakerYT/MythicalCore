@@ -7,7 +7,7 @@ namespace core\faction\command\subCommands;
 use core\command\utils\SubCommand;
 use core\faction\Faction;
 use core\faction\FactionException;
-use core\CrypticPlayer;
+use core\MythicalPlayer;
 use core\translation\Translation;
 use core\translation\TranslationException;
 use pocketmine\command\CommandSender;
@@ -41,7 +41,7 @@ class FixSubCommand extends SubCommand {
             return;
         }
         $target = $sender->getServer()->getPlayer($args[1]);
-        if(!$target instanceof CrypticPlayer) {
+        if(!$target instanceof MythicalPlayer) {
             $sender->sendMessage(Translation::getMessage("invalidPlayer"));
             return;
         }
