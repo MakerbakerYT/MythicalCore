@@ -291,7 +291,7 @@ class MythicalListener implements Listener
     public function onPlayerCommandPreprocess(PlayerCommandPreprocessEvent $event): void
     {
         $player = $event->getPlayer();
-        if (!$player instanceof CrypticPlayer) {
+        if (!$player instanceof MythicalPlayer) {
             return;
         }
         if ($this->core->getAnnouncementManager()->getRestarter()->getRestartProgress() > 5) {
@@ -384,7 +384,7 @@ class MythicalListener implements Listener
     public function onBlockBreak(BlockBreakEvent $event)
     {
         $player = $event->getPlayer();
-        if ($player instanceof CrypticPlayer) {
+        if ($player instanceof MythicalPlayer) {
             if ($player->isInStaffMode()) {
                 $event->setCancelled();
                 return;
@@ -410,7 +410,7 @@ class MythicalListener implements Listener
     public function onBlockPlace(BlockPlaceEvent $event)
     {
         $player = $event->getPlayer();
-        if ($player instanceof CrypticPlayer) {
+        if ($player instanceof MythicalPlayer) {
             if ($player->isInStaffMode()) {
                 $event->setCancelled();
                 return;
@@ -433,7 +433,7 @@ class MythicalListener implements Listener
     public function onEntityLevelChange(EntityLevelChangeEvent $event): void
     {
         $entity = $event->getEntity();
-        if (!$entity instanceof CrypticPlayer) {
+        if (!$entity instanceof MythicalPlayer) {
             return;
         }
         foreach ($entity->getFloatingTexts() as $floatingText) {
@@ -630,7 +630,7 @@ class MythicalListener implements Listener
                     case Item::MOB_HEAD:
                         $event->setCancelled();
                         $randomPlayer = $this->core->getServer()->getOnlinePlayers()[array_rand($this->core->getServer()->getOnlinePlayers())];
-                        if ($randomPlayer instanceof CrypticPlayer) {
+                        if ($randomPlayer instanceof MythicalPlayer) {
                             $player->teleport($randomPlayer->asPosition());
                             $player->sendMessage("§l§8(§a!§8)§r §7You have teleported to " . TextFormat::GREEN . $randomPlayer->getName() . "§r§7.");
                         }
@@ -646,7 +646,7 @@ class MythicalListener implements Listener
     public function onEntityDamage(EntityDamageEvent $event): void
     {
         $entity = $event->getEntity();
-        if ($entity instanceof CrypticPlayer) {
+        if ($entity instanceof MythicalPlayer) {
             if ($event instanceof EntityDamageByEntityEvent) {
                 $damager = $event->getDamager();
                 if ($damager instanceof CrypticPlayer) {
@@ -670,7 +670,7 @@ class MythicalListener implements Listener
     public function onCommandPreProcess(PlayerCommandPreprocessEvent $event): void
     {
         $player = $event->getPlayer();
-        if ($player instanceof CrypticPlayer) {
+        if ($player instanceof MythicalPlayer) {
             if (substr($event->getMessage(), 0, 1) === "/") {
                 $command = substr(explode(" ", $event->getMessage())[0], 1);
                 if (strtolower($command) === "tp" or strtolower($command) === "teleport") {
