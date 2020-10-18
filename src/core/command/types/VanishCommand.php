@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace core\command\types;
 
 use core\command\utils\Command;
-use core\CrypticPlayer;
+use core\MythicalPlayer;
 use core\translation\Translation;
 use core\translation\TranslationException;
 use pocketmine\command\CommandSender;
@@ -28,7 +28,7 @@ class VanishCommand extends Command {
      * @throws TranslationException
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args): void {
-        if((!$sender instanceof CrypticPlayer) or ((!$sender->isOp()) and (!$sender->hasPermission("permission.staff")))) {
+        if((!$sender instanceof MythicalPlayer) or ((!$sender->isOp()) and (!$sender->hasPermission("permission.staff")))) {
             $sender->sendMessage(Translation::getMessage("noPermission"));
             return;
         }
