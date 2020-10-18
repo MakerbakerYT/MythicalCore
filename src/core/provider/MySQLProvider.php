@@ -24,7 +24,7 @@ class MySQLProvider {
 	 */
 	public function __construct(Mythical $core) {
 		$this->core = $core;
-		$this->database = new mysqli("na02-db.cus.mc-panel.net", "db_156062", "53706adbdf", self::DATABASE);
+		$this->database = new mysqli("na02-db.cus.mc-panel.net", "db_156062", "ead7f84edf", self::DATABASE);
 		$this->init();
 	}
 
