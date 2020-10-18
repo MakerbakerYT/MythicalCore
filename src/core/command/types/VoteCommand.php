@@ -6,7 +6,7 @@ namespace core\command\types;
 
 use core\command\task\CheckVoteTask;
 use core\command\utils\Command;
-use core\CrypticPlayer;
+use core\MythicalPlayer;
 use core\translation\Translation;
 use core\translation\TranslationException;
 use pocketmine\command\CommandSender;
@@ -28,7 +28,7 @@ class VoteCommand extends Command {
      * @throws TranslationException
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args): void {
-        if(!$sender instanceof CrypticPlayer) {
+        if(!$sender instanceof MythicalPlayer) {
             $sender->sendMessage(Translation::getMessage("noPermission"));
             return;
         }
