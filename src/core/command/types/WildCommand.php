@@ -7,7 +7,7 @@ namespace core\command\types;
 use core\command\task\TeleportTask;
 use core\command\utils\Command;
 use core\faction\Faction;
-use core\CrypticPlayer;
+use core\MythicalPlayer;
 use core\translation\Translation;
 use core\translation\TranslationException;
 use pocketmine\command\CommandSender;
@@ -32,7 +32,7 @@ class WildCommand extends Command {
      * @throws TranslationException
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args): void {
-        if($sender instanceof CrypticPlayer) {
+        if($sender instanceof MythicalPlayer) {
             $level = $sender->getServer()->getLevelByName(Faction::CLAIM_WORLD);
             $position = $this->findLocation($level);
             $this->getCore()->getScheduler()->scheduleRepeatingTask(new TeleportTask($sender, $position, 5), 20);
