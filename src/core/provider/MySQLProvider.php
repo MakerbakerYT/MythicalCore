@@ -49,9 +49,9 @@ class MySQLProvider {
 	}
 	   public static function queryAsync(string $query, string $types = "", array $params = [], ?callable $onComplete = null) : void{
     }
-        //public static function querySync(string $query, string $types = "", array $params = []) : array{
-        //return [];
-    //}
+        public static function querySync(string $query, string $types = "", array $params = []) : array{
+        return [];
+    }
 
 	/**
 	 * @return mysqli
