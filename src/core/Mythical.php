@@ -12,7 +12,7 @@ use core\combat\boss\BossException;
 use core\combat\boss\tasks\SpawnWitcherBoss;
 use core\combat\CombatManager;
 use core\command\CommandManager;
-use core\command\task\CheckVoteTask;
+//use core\command\task\CheckVoteTask;
 use core\crate\CrateManager;
 use core\custompotion\CustomPotionListener;
 use core\entity\EntityManager;
@@ -195,7 +195,7 @@ class Mythical extends PluginBase {
         $this->initEvents();
         $this->initTasks();
 
-        $get = Internet::getURL(CheckVoteTask::STATS_URL);
+     //   $get = Internet::getURL(CheckVoteTask::STATS_URL);
         if($get !== false) {
             $get = json_decode($get, true);
             if(isset($get["votes"])) {
@@ -230,7 +230,7 @@ class Mythical extends PluginBase {
      * @return void
      */
     function onDisable(): void{
-        $this->KitManager()->save();
+       // $this->KitManager()->save();
     }
 
     /**
@@ -346,32 +346,31 @@ class Mythical extends PluginBase {
             $this->eventManager = new EventManager();
             $this->mask = new MaskManager();
             $this->clearlag = new ClearLagManager();
-            self::debug("Successfully loaded all server managers.");
-        }catch (Exception $ex) {
-		//idk whats this does
+        }catch (Exception $exception) {
+            $this->getLogger()->error("There was an unexpected error while attempting to initiate \"Mythical.php\"'s variables. The error was " . $exception->getMessage());
         }
     }
 
     /**
      * @return int
      */
-    function getVotes(): int {
-        return $this->votes;
+  //  function getVotes(): int {
+    //    return $this->votes;
     }
 
     /**
      * @param int $amount
      */
-    function setVotes(int $amount): void {
-        $this->votes = $amount;
-    }
+    //function setVotes(int $amount): void {
+      //  $this->votes = $amount;
+    //}
 
     /**
      * @return Cryptic
      */
-    static function getInstance(): Cryptic {
-        return self::$instance;
-    }
+    //static function getInstance(): Mythical {
+      //  return self::$instance;
+    //}
 
     /**
      * @return MySQLProvider
@@ -526,4 +525,3 @@ class Mythical extends PluginBase {
     function getTagManager(): TagManager{
         return $this->tagManager;
     }
-}
